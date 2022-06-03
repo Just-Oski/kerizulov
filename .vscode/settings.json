@@ -1,0 +1,11 @@
+{
+    "discord.lowerDetailsIdling": "Śpie",
+    "discord.lowerDetailsNoWorkspaceFound": "A chuj go wie",
+    "discord.largeImageIdling": "Spanie",
+    "discord.detailsIdling": "Spanie",
+    "discord.detailsEditing": "⌠⚙⌡{file_name}",
+    "discord.largeImage": "Edytuje {LANG} file",
+    "discord.detailsDebugging": "Debuguje {file_name}",
+    "discord.lowerDetailsDebugging": "Debuguje: {workspace}",
+    "discord.lowerDetailsEditing": "⌠🗂⌡{workspace}"
+}
