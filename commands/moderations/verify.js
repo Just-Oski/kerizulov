@@ -8,7 +8,7 @@ module.exports = {
 		if (!args[0]) return message.channel.send('Złe użycie, poprawne to `<nazwa użytkownika || id>').then((m) => m.delete({ timeout: 5000 }));
 
             const roleId = "867193388066275348"
-
+			const zeroPad = (num, places) => String(num).padStart(places, '0')
 		try {
 			const member = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
 			const roleName = message.guild.roles.cache.find((r) => (r.id === roleId.toString().replace(/[^\w\s]/gi, '')));
@@ -18,10 +18,10 @@ module.exports = {
 			if (alreadyHasRole) return message.channel.send('Ale ten ziom jest zweryfikowany tego typu').then((m) => m.delete({ timeout: 5000 }));
 
 			var currentdate = new Date(); 
-			var datetime = currentdate.getHours()+2 .toString("00"); + ":" 
-			+ currentdate.getMinutes().toString("00") + " " 
-			+ currentdate.getDate() + "."
-			+ (currentdate.getMonth()+1 .toString("00"))  + "." 
+			var datetime = (zeroPad(currentdate.getHours()+2, 2)) + ":" 
+			+ zeroPad(currentdate.getMinutes(), 2) + " " 
+			+ zeroPad(currentdate.getDate(), 2) + "."
+			+ zeroPad((currentdate.getMonth()+1), 2) + "." 
 			+ currentdate.getFullYear()
 
 			const embed = new MessageEmbed()
@@ -36,7 +36,7 @@ module.exports = {
 			.catch(console.error),
 			message.channel.send(embed));
 		} catch (e) {
-			return message.channel.send('Spróbuj ponownie').then((m) => m.delete({ timeout: 5000 }));	
+			return message.channel.send('Spróbuj ponownie').then((m) => m.delete({ timeout: 5000 })).then(console.log(e));	
 		}
 	},
 };
