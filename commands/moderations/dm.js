@@ -1,7 +1,9 @@
 
 const {
   Permissions: { FLAGS },
-} = require("discord.js")
+} = require("discord.js");
+
+const { MessageEmbed } = require("discord.js")
 
 module.exports = {
     name: "dm",
@@ -23,8 +25,15 @@ module.exports = {
         );
       if (!args.slice(1).join(" "))
         return message.channel.send("Nie podałeś żadnej wiadomości!");
+
+          let embed = new MessageEmbed()
+          .setTitle(`Nowa wiadomość od administratora ${message.author.username}`)
+          .setDescription(args.slice(1).join(" "))
+          .setFooter(`Wiadomość wysłana z serwera ${message.guild.name}`)
+          .setColor('9e0803')
+
       user.user
-        .send(args.slice(1).join(" "))
+        .send(embed)
         .catch(() => message.channel.send("Nie mogę tej osobie wysłać wiadomości!"))
         .then(() => message.channel.send(`Wysłano wiadomość do ${user.user.tag}`));
     },
