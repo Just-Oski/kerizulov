@@ -18,10 +18,10 @@ module.exports = {
 			if (alreadyHasRole) return message.channel.send('Ale ten ziom jest zweryfikowany tego typu').then((m) => m.delete({ timeout: 5000 }));
 
 			var currentdate = new Date(); 
-			var datetime = currentdate.getHours()+2 + ":" 
-			+ currentdate.getMinutes() + " " 
+			var datetime = currentdate.getHours()+2 .toString("00"); + ":" 
+			+ currentdate.getMinutes().toString("00") + " " 
 			+ currentdate.getDate() + "."
-			+ (currentdate.getMonth()+1)  + "." 
+			+ (currentdate.getMonth()+1 .toString("00"))  + "." 
 			+ currentdate.getFullYear()
 
 			const embed = new MessageEmbed()
