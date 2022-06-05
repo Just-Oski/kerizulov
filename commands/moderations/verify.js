@@ -7,7 +7,7 @@ module.exports = {
 		message.delete();
 		if (!args[0]) return message.channel.send('Złe użycie, poprawne to `<nazwa użytkownika || id>').then((m) => m.delete({ timeout: 5000 }));
 
-            const roleId = "867193388066275348"
+            const roleId = "982685805560627231"
 			const zeroPad = (num, places) => String(num).padStart(places, '0')
 		try {
 			const member = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
@@ -30,13 +30,26 @@ module.exports = {
 				.setColor('6cf542')
 				.setThumbnail(member.user.displayAvatarURL({ dynamic: true }))
 				.setFooter(datetime);
-
+				
+			const em = new MessageEmbed()
+				.setTitle(`Logi`)
+				.setColor('34ebd8')
+				.setDescription(`${message.author} pomyślnie zweryfikował: ${member.user}`)
+				.setThumbnail(member.user.displayAvatarURL({ dynamic: true }))
+				.setFooter(datetime);
 			return member.roles.add(roleName).then(() => 
 			message.channel.edit({ name: `zweryfikowany-${member.user.username}` })
 			.catch(console.error),
-			message.channel.send(embed));
+			message.channel.send(embed),
+			client.channels.cache.get("867887317003141152").send(em));
 		} catch (e) {
-			return message.channel.send('Spróbuj ponownie').then((m) => m.delete({ timeout: 5000 })).then(console.log(e));	
+			const logembed = new MessageEmbed()
+			.setTitle(`Logi`)
+			.setColor('34ebd8')
+			.setDescription(e)
+			.setFooter(datetime);
+			return message.channel.send('Spróbuj ponownie').then((m) => m.delete({ timeout: 5000 })).then(console.log(e)),
+			client.channels.cache.get("980875782014525480").send(logembed);	
 		}
 	},
 };
