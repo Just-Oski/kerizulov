@@ -14,7 +14,7 @@ module.exports = {
     // botPermissions: [FLAGS.MANAGE_MESSAGES],
     // userPermissions: [FLAGS.MANAGE_MESSAGES],
     async execute(bot, message, args) {
-      message.delete({function: 0000});
+      message.delete({function: 1000});
       if(!message.member.roles.cache.some(r => r.name === "〘 🔒 〙Administrator 𓆃")) return message.reply('Nie możesz tego użyć!')
       let user =
         message.mentions.members.first() ||
