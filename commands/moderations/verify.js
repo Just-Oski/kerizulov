@@ -1,4 +1,5 @@
 const { MessageEmbed } = require('discord.js');
+const dotenv = require("dotenv").config("./.env")
 
 module.exports = {
 	name: 'verify',
@@ -7,7 +8,7 @@ module.exports = {
 		message.delete();
 		if (!args[0]) return message.channel.send('Złe użycie, poprawne to `<nazwa użytkownika || id>').then((m) => m.delete({ timeout: 5000 }));
 
-            const roleId = "867193388066275348" // 867193388066275348
+            const roleId = process.env.roleID // 867193388066275348
 			const zeroPad = (num, places) => String(num).padStart(places, '0')
 		try {
 			const member = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
