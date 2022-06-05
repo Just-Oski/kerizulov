@@ -1,7 +1,10 @@
 const fs = require('fs');
 const discord = require('discord.js');
-const client = new discord.Client({ disableMentions: 'everyone' });
-const chalk = import('chalk')
+const client = new discord.Client({ disableMentions: 'everyone', intents: [
+    discord.Intents.GUILD_MEMBERS, 
+    discord.Intents.GUILD_MESSAGES, 
+    discord.Intents.DIRECT_MESSAGES,
+    discord.Intents.GUILD_MESSAGE_TYPING] });
 
 const { MessageEmbed } = require(`discord.js`)
 
