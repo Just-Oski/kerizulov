@@ -8,7 +8,7 @@ module.exports = {
 		message.delete();
 		if (!args[0]) return message.channel.send('Złe użycie, poprawne to `<nazwa użytkownika || id>').then((m) => m.delete({ timeout: 5000 }));
 
-            const roleId = process.env.roleID // 867193388066275348
+            const roleId = "982685805560627231" // 867193388066275348
 			const roleIdBot = "867193031026409522"
 			const zeroPad = (num, places) => String(num).padStart(places, '0')
 		try {
@@ -48,7 +48,7 @@ module.exports = {
 				.setDescription(`${message.author} pomyślnie zweryfikował: ${member.user}`)
 				.setThumbnail(member.user.displayAvatarURL({ dynamic: true }))
 				.setFooter(datetime);
-			return member.roles.add(roleName).then(() => 
+			return member.roles.add(roleName, `Weryfikacja przez ${message.author.username}`).then(() => 
 			message.channel.edit({ name: `zweryfikowany-${member.user.username}` })
 			.catch(console.error),
 			message.channel.send(embed),
