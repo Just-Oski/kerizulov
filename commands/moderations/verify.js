@@ -8,7 +8,7 @@ module.exports = {
 		message.delete();
 		if (!args[0]) return message.channel.send('Złe użycie, poprawne to `<nazwa użytkownika || id>').then((m) => m.delete({ timeout: 5000 }));
 
-            const roleId = process.env.roleId // 867193388066275348
+            const roleId = "867193388066275348" // 867193388066275348
 			const roleIdBot = "867193031026409522"
 			const zeroPad = (num, places) => String(num).padStart(places, '0')
 		try {
