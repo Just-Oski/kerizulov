@@ -61,7 +61,7 @@ module.exports = {
 			.setDescription(e)
 			.setFooter(datetime);
 			return message.channel.send('Spróbuj ponownie').then((m) => m.delete({ timeout: 5000 })).then(console.log(e)),
-			client.channels.cache.get("980875782014525480").send(logembed);	
+			client.channels.cache.get("984035377633439804").send(logembed);
 		}
 	},
 };
