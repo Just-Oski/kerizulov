@@ -60,7 +60,7 @@ module.exports = {
 			.setColor('34ebd8')
 			.setDescription(e)
 			.setFooter(datetime);
-			return message.channel.send('Spróbuj ponownie').then((m) => m.delete({ timeout: 5000 })).then(console.log(e)),
+			return message.channel.send(`Najprawdopodobniej, bot zajebał fikołka\nLub osoba wyszła z serwera.`).then(console.log(e)),
 			client.channels.cache.get("984035377633439804").send(logembed);
 		}
 	},
