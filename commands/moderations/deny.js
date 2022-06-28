@@ -6,8 +6,6 @@ module.exports = {
 	async execute(client, message, args){
         if(!message.member.roles.cache.some(r => r.name === "👑│Zarząd San Andreas Medical Services")) return message.reply('Nie możesz tego użyć!')
 		message.delete();
-		if (!args[0]) return message.channel.send('Złe użycie, poprawne to `<nazwa użytkownika || id>').then((m) => m.delete({ timeout: 5000 }));
-
 			const zeroPad = (num, places) => String(num).padStart(places, '0')
 		try {
 			const member = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
