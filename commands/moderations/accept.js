@@ -37,7 +37,8 @@ module.exports = {
 			message.channel.edit({ name: `pytanie-${member.user.username}` })
 			.catch(console.error),
 			message.channel.send('Zarząd San Andreas Medical Department, z przyjemnością informuję, że:'),
-			message.channel.send(embed));
+			message.channel.send(embed),
+			member.setNickname('[XX] Imie Nazwisko', `Akceptacja Podania`));
 		} catch (e) {
 			const logembed = new MessageEmbed()
 			.setTitle(`Logi`)
