@@ -8,6 +8,6 @@ module.exports = async (client) => {
     //         type: "WATCHING" // PLAYING, WATCHING, LISTENING, STREAMING,
     //     }
     // // });
-    client.user.setActivity('Kerizusia ❤️‍🔥', { type: 'LISTENING' });
+    client.user.setActivity('nowe podania', { type: 'WATCHING' });
 
 };
